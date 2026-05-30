@@ -1,54 +1,24 @@
-# TaskFlow Agile Project
+---
 
-## Descrição
+## 🔄 Gestão de Mudanças (Alteração de Escopo)
 
-O TaskFlow é um sistema de gerenciamento de tarefas desenvolvido para uma startup de logística fictícia. O objetivo é permitir o acompanhamento do fluxo de trabalho em tempo real, a organização das atividades da equipe e o controle do andamento das tarefas.
+**Justificativa:** Durante o alinhamento com a startup de logística (cliente), identificou-se a necessidade crítica de priorizar entregas de cargas de acordo com a urgência. Portanto, o escopo foi adaptado para incluir um sistema de **Priorização de Tarefas (Alta, Média, Baixa)**. A alteração foi refletida no quadro Kanban e novas regras de validação foram planejadas para o código base.
 
-## Escopo Inicial
+---
 
-- Cadastro de tarefas
-- Visualização de tarefas
-- Atualização de status
-- Exclusão de tarefas
-- Atribuição de responsáveis
+## ❓ Questões Norteadoras
 
-## Metodologia Utilizada
+### 1. Quais são as principais causas de falhas em projetos ágeis e como o GitHub pode ajudar a mitigá-las?
+As principais causas são a má comunicação, falta de clareza no escopo e falhas no rastreamento de tarefas. O GitHub mitiga isso centralizando o código, permitindo discussões em Issues/Pull Requests e fornecendo o GitHub Projects (Kanban) para visibilidade do fluxo em tempo real.
 
-O projeto foi desenvolvido utilizando conceitos das metodologias ágeis Scrum e Kanban.
+### 2. Quem são os principais beneficiados por um sistema de gerenciamento ágil e como eles utilizam as funcionalidades desenvolvidas?
+Os gestores de projetos (que acompanham gargalos pelo Kanban), os desenvolvedores (que focam em tarefas priorizadas) e os clientes/stakeholders (que ganham previsibilidade e entregas frequentes de valor).
 
-### Scrum
-- Planejamento por Sprints
-- Priorização de atividades
-- Entregas incrementais
+### 3. Como o uso de ferramentas de controle de qualidade, como GitHub Actions, pode garantir a entrega de um software confiável?
+Através da Integração Contínua (CI). O GitHub Actions executa os testes automatizados (como o JUnit) a cada `push`. Isso garante que nenhuma alteração nova quebre funcionalidades que já estavam funcionando, impedindo que bugs cheguem à produção.
 
-### Kanban
-- Coluna A Fazer
-- Coluna Em Progresso
-- Coluna Concluído
+### 4. Quais são os principais desafios ao implementar mudanças em um projeto ágil e como lidar com eles?
+O principal desafio é o impacto no prazo e a resistência do código a alterações. Lida-se com isso revisando o backlog e garantindo uma boa cobertura de testes unitários para que o código seja flexível e seguro para mudar.
 
-## Tecnologias Utilizadas
-
-- Java 17
-- Maven
-- JUnit 5
-- GitHub Actions
-- GitHub Projects
-
-## Controle de Qualidade
-
-Foram implementados testes automatizados utilizando JUnit 5. O GitHub Actions executa os testes automaticamente a cada alteração enviada ao repositório.
-
-## Gestão de Mudanças
-
-Durante o desenvolvimento foi identificada a necessidade de maior rastreabilidade das tarefas. Como consequência, o escopo foi ajustado para incluir validações adicionais e controle de responsáveis. A funcionalidade de filtros avançados foi adiada para uma próxima Sprint.
-
-## Estrutura do Projeto
-
-src/main/java
-- Task.java
-
-src/test/java
-- TaskTest.java
-
-.github/workflows
-- testes.yml
+### 5. Como as metodologias ágeis estudadas na disciplina podem ser aplicadas diretamente neste projeto?
+Foram aplicadas de forma prática através da divisão do trabalho em pequenas entregas (Sprints de configuração), uso de um quadro visual (Kanban) para gerenciar o progresso e adaptação rápida quando o escopo mudou.
