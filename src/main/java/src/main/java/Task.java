@@ -1,62 +1,37 @@
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+public class Task {
+    private int id;
+    private String titulo;
+    private String descricao;
+    private String responsavel;
+    private String status;
 
-public class TaskTest {
-
-    @Test
-    public void testCriarTarefa() {
-
-        Task tarefa = new Task(
-                1,
-                "Entregar carga",
-                "Centro",
-                "Carlos"
-        );
-
-        assertEquals("Entregar carga", tarefa.getTitulo());
-        assertEquals("A Fazer", tarefa.getStatus());
+    public Task(int id, String titulo, String descricao, String responsavel) {
+        // Validação exigida pelo testTituloVazio
+        if (titulo == null || titulo.trim().isEmpty()) {
+            throw new IllegalArgumentException("O título não pode ser vazio.");
+        }
+        
+        this.id = id;
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.responsavel = responsavel;
+        this.status = "A Fazer"; // Exigido pelo testCriarTarefa
     }
 
-    @Test
-    public void testTituloVazio() {
-
-        assertThrows(
-                IllegalArgumentException.class,
-                () -> new Task(2, "", "Teste", "Ana")
-        );
+    public void atualizarStatus(String novoStatus) {
+        // Validação exigida pelo testStatusInvalido
+        // Aqui definimos os status aceitos. Se não for um desses, joga a exceção.
+        if (novoStatus.equals("A Fazer") || novoStatus.equals("Em Progresso") || novoStatus.equals("Concluído")) {
+            this.status = novoStatus;
+        } else {
+            throw new IllegalArgumentException("Status inválido: " + novoStatus);
+        }
     }
 
-    @Test
-    public void testAtualizarStatus() {
-
-        Task tarefa = new Task(
-                3,
-                "Separar pedidos",
-                "Galpão",
-                "Ana"
-        );
-
-        tarefa.atualizarStatus("Em Progresso");
-
-        assertEquals(
-                "Em Progresso",
-                tarefa.getStatus()
-        );
-    }
-
-    @Test
-    public void testStatusInvalido() {
-
-        Task tarefa = new Task(
-                4,
-                "Teste",
-                "Descrição",
-                "Pedro"
-        );
-
-        assertThrows(
-                IllegalArgumentException.class,
-                () -> tarefa.atualizarStatus("Cancelado")
-        );
-    }
+    // Getters necessários para as asserções (assertEquals)
+    public int getId() { return id; }
+    public String getTitulo() { return titulo; }
+    public String getDescricao() { return descricao; }
+    public String getResponsavel() { return responsavel; }
+    public String getStatus() { return status; }
 }
